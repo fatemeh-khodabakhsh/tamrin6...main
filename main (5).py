@@ -1,20 +1,21 @@
 n = input()
-x = n.split()
-b = int(input())
-f = {}
+numbers = n.split()
+target = int(input())
+positions = {}
 
-for i,j in enumerate(x):
-     f[(int(j))] = i
-c={}
-for k in f.keys():
-    t = b-k
-    if t in f and t != k:
-        d = f[k]+f[t]
-        if (t, k) not in c.keys():
-            c[(k, t)] = d
-r = sorted(c.values())
-if not c:
+for index, number in enumerate(numbers):
+     positions[(int(number))] = index
+combinations = {}
+for k in positions.keys():
+    difference = target - k
+    if difference in positions and difference != k:
+        sum_of_positions = positions[k] + positions[difference]
+        if (difference, k) not in c.keys():
+            combinations[(k, difference)] = sum_of_positions
+sorted_combinations = sorted(combinations.values())
+
+if not combinations:
     print("Not Found!")
 else:
-    for h in r:
-        print(h)
+    for combination in sorted_combinations:
+        print(combination)
