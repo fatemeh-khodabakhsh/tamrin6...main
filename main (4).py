@@ -1,21 +1,20 @@
 import re
-b = input()
-b = re.sub(r' +',' ',b.strip())
-b = re.sub(r"\\n","\n",b)
 
-g = ""
-b =list(b)
-c = []
+text = input()
+text = re.sub(r' +', ' ',text.strip())
+text = re.sub(r"\\n", "\n",text)
+
+formatted_text = ""
+text_list =list(text)
 tmp = 0
 
-for i in b:
-    if i=="@":
-        c.append('@')
-        tmp+=1
-    elif i=='#' and tmp>0:
-        tmp-=1
+for char in b:
+    if char == "@":
+        formatted_text += '@'
+        tmp += 1
+    elif char == '#' and tmp > 0:
+        tmp -= 1
     else:
-        c.append(i)
-for item in c:
-    g+=str(item)
-print('Formatted Text: '+g)
+        formatted_text += char
+        
+print('Formatted Text: '+formatted_text)
