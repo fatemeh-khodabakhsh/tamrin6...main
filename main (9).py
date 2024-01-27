@@ -16,13 +16,9 @@ def calculate_distance(word1,word2):
 n = int(input())
 sentence = input()
 keyword = input()
-sentence1 = sentence.replace(".", "")
-sentence2 = sentence1.replace("،", "")
-sentence3 = sentence2.replace(":", "")
-for word in sentence3.split():
+sentence = sentence.replace(".", "").replace("،", "").replace(":", "")
+for word in sentence.split():
     if calculate_distance(keyword, word) <= n:
         print(word)
-
-
 
 
