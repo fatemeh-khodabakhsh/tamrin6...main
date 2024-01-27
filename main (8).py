@@ -5,31 +5,25 @@ class Soldier:
         self.x = x
         self.y = y
 
-
 class Melee(Soldier):
     def __init__(self, id, health, x, y):
         super().__init__(id, health, x, y)
-
 
 class Archer(Soldier):
     def __init__(self, id, health, x, y):
         super().__init__(id, health, x, y)
 
-
 def main():
     n = int(input())
-    g = [[None for i in range(n + 1)] for j in range(2)]
+    g = [[None for _ in range(n + 1)] for _ in range(2)]
     turn = 0
 
     while True:
         ins = input().split()
-        # print(ins)
-        # print(g)
-        # print(turn)
-
+        
         if ins[0] == "new":
             s_type, id, x, y = ins[1], int(ins[2]), int(ins[3]), int(ins[4])
-            if g[turn][id] != None:
+            if g[turn][id] is note None:
                 print("duplicate tag")
             else:
                 if s_type == "archer":
@@ -53,9 +47,7 @@ def main():
 
         elif ins[0] == "attack":
             attacker_id, target_id = int(ins[1]), int(ins[2])
-            distance = abs(g[turn][attacker_id].x - g[1 - turn][target_id].x) + abs(
-                g[turn][attacker_id].y - g[1 - turn][target_id].y)
-
+            distance = abs(g[turn][attacker_id].x - g[1 - turn][target_id].x) + abs(g[turn][attacker_id].y - g[1 - turn][target_id].y)
             if isinstance(g[turn][attacker_id], Archer):
                 if distance <= 2:
                     g[1 - turn][target_id].health -= 10
@@ -76,12 +68,9 @@ def main():
                 else:
                     print('the target is too far')
 
-
-
-
         elif ins[0] == "info":
             id = int(ins[1])
-            if g[turn][id] == None:
+            if g[turn][id] is None:
                 print('soldier does not exist')
             else:
                 print('health: ', g[turn][id].health)
@@ -109,7 +98,6 @@ def main():
 
         elif ins[0] == 'end':
             break
-
 
 if __name__ == '__main__':
     main()
