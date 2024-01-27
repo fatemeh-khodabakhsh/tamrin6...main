@@ -1,83 +1,85 @@
-n = str(input())
-def lcd(a,b):
-    return abs(a*b)//gcd(a,b)
-def gcd(a,b):
-    while b!=0:
-        a,b=b,a%b
+def lcd(a, b):
+    return abs(a*b) // gcd(a,b)
+    
+def gcd(a, b):
+    while b! = 0:
+        a, b = b, a % b
     return a
-sum =0
-if n == "sum":
-    while (True):
-        a = input()
-        if(a=="end"):
-            break
-        a= int(a)
-        sum += a
-    print(sum)
 
-elif n== "average":
-    sum = 0
-    count =0
-    while (True):
+n = input()
+if n == "sum":
+    total_sum = 0
+    while True:
         a = input()
-        if(a=="end"):
+        if a == "end":
             break
-        a= int(a)
-        sum += a
+        total_sum += int(a)
+    print(total_sum)
+
+elif n == "average":
+    total_sum = 0
+    count = 0
+    while True:
+        a = input()
+        if a == "end":
+            break
+        total_sum += int(a)
         count += 1
-    print(round(sum/count,2))
+    print(round(total_sum/count,2))
+    
 elif n == "lcd":
-    b = []
-    while (True):
+    numbers = []
+    while True:
         a = input()
-        if (a == "end"):
+        if a == "end":
             break
-        b.append(int(a))
-    while len(b) != 1:
-        kmm = lcd(b[0], b[1])
-        x = b[0]
-        y = b[1]
-        b.remove(x)
-        b.remove(y)
-        b.append(kmm)
-    print(b[0])
-elif n=="gcd":
-    b=[]
-    while (True):
+        numbers.append(int(a))
+    while len(numbers) != 1:
+        kmm = lcd(numbers[0], numbers[1])
+        x = numbers[0]
+        y = numbers[1]
+        numbers.remove(x)
+        numbers.remove(y)
+        numbers.append(kmm)
+    print(numbers[0])
+    
+elif n == "gcd":
+    numbers=[]
+    while True:
         a = input()
-        if(a=="end"):
+        if a == "end":
             break
-        b.append(int(a))
-    while len(b)!=1:
-        bmm=gcd(b[0],b[1])
-        x=b[0]
-        y=b[1]
-        b.remove(x)
-        b.remove(y)
-        b.append(bmm)
-    print(b[0])
+        numbers.append(int(a))
+    while len(numbers) != 1:
+        bmm = gcd(numbers[0],numbers[1])
+        x=numbers[0]
+        y=numbers[1]
+        numbers.remove(x)
+        numbers.remove(y)
+        numbers.append(bmm)
+    print(numbers[0])
 elif n == "min":
     x = int()
-    min = x
-    while (True):
+    minimum = x
+    while True:
         a = input()
-        if (a == "end"):
-            break
-        a =int(a)
-        if a < x or min==x:
-            x=a
-    print(x)
-
-elif n=="max":
-    x =int()
-    max = x
-    while(True):
-        a = input()
-        if (a == "end"):
+        if a == "end":
             break
         a = int(a)
-        if a > x or max==x :
-            x =a
+        if a < x or minimum == x:
+            x = a
+    print(x)
+
+elif n == "max":
+    x =int()
+    maximum = x
+    while True:
+        a = input()
+        if a == "end":
+            break
+        a = int(a)
+        if a > x or maximum == x :
+            x = a
     print(x)
 else:
     print("Invalid command")
