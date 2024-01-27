@@ -5,7 +5,6 @@ class MrKrabs:
     def process_data(self):
         return self.data.replace("tt", "o")
 
-
 class SpongeBob(MrKrabs):
     def __init__(self, data):
         super().__init__(data)
@@ -31,12 +30,8 @@ class SpongeBob(MrKrabs):
             else:
                 result.append(right[j])
                 j += 1
-        while i < len(left):
-            result.append(left[i])
-            i += 1
-        while j < len(right):
-            result.append(right[j])
-            j += 1
+        result.extand(left[i:])
+        result.extand(right[j:])
         return ''.join(result)
 
 
